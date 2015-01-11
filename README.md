@@ -147,7 +147,12 @@ You can create an injectable service
 ```
 
 ## Unit Test
-Unavailable
+Also available in /phpunit directory. Run command to start
+```php
+php build/phpunit.phar --configuration phpunit.xml.dist --coverage-text
+```
+
+Read logs from phpunit/log
 
 ##[Change Log](https://github.com/stanislav-web/phalcon-uploader/blob/master/CHANGELOG.md "Change Log")
 
