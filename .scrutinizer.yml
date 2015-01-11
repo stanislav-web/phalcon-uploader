@@ -10,6 +10,7 @@ build:
     dependencies:
 
         before:
+            - composer self-update
             - composer install --prefer-dist -o
             - git clone -q --depth=1 https://github.com/phalcon/cphalcon.git -b master
             - cd cphalcon/ext; export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall"; phpize && ./configure --enable-phalcon && make -j4 && sudo make install && sed -i '$ a \\n[Phalcon]\nextension=phalcon.so\n'  /home/scrutinizer/.phpenv/versions/5.4.28/etc/php.ini

@@ -152,7 +152,9 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
             }
         }
 
-        return (empty($this->getErrors())  === true) ? true : false;
+        $errors = $this->getErrors();
+
+        return (empty($errors)  === true) ? true : false;
     }
 
     /**
