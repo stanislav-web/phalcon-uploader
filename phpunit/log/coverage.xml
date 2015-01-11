@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1420991483">
-  <project timestamp="1420991483">
+<coverage generated="1420992343">
+  <project timestamp="1420992343">
     <package name="Uploader\Helpers">
       <file name="/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-uploader/src/Uploader/Helpers/Format.php">
         <class name="Format" namespace="Uploader\Helpers" fullPackage="Uploader.Uploader" package="Uploader" subpackage="Uploader">
@@ -45,7 +45,7 @@
     <package name="Uploader">
       <file name="/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-uploader/src/Uploader/Uploader.php">
         <class name="Uploader" namespace="Uploader" fullPackage="Uploader" package="Uploader">
-          <metrics methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="54" coveredstatements="4" elements="62" coveredelements="4"/>
+          <metrics methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="55" coveredstatements="4" elements="63" coveredelements="4"/>
         </class>
         <line num="65" type="method" name="__construct" crap="2.15" count="1"/>
         <line num="67" type="stmt" count="1"/>
@@ -80,36 +80,37 @@
         <line num="152" type="stmt" count="0"/>
         <line num="153" type="stmt" count="0"/>
         <line num="155" type="stmt" count="0"/>
-        <line num="163" type="method" name="move" crap="56" count="0"/>
-        <line num="167" type="stmt" count="0"/>
+        <line num="157" type="stmt" count="0"/>
+        <line num="165" type="method" name="move" crap="56" count="0"/>
         <line num="169" type="stmt" count="0"/>
-        <line num="170" type="stmt" count="0"/>
         <line num="171" type="stmt" count="0"/>
+        <line num="172" type="stmt" count="0"/>
         <line num="173" type="stmt" count="0"/>
-        <line num="174" type="stmt" count="0"/>
         <line num="175" type="stmt" count="0"/>
         <line num="176" type="stmt" count="0"/>
+        <line num="177" type="stmt" count="0"/>
         <line num="178" type="stmt" count="0"/>
-        <line num="179" type="stmt" count="0"/>
+        <line num="180" type="stmt" count="0"/>
         <line num="181" type="stmt" count="0"/>
-        <line num="182" type="stmt" count="0"/>
         <line num="183" type="stmt" count="0"/>
+        <line num="184" type="stmt" count="0"/>
         <line num="185" type="stmt" count="0"/>
-        <line num="188" type="stmt" count="0"/>
+        <line num="187" type="stmt" count="0"/>
         <line num="190" type="stmt" count="0"/>
         <line num="192" type="stmt" count="0"/>
-        <line num="193" type="stmt" count="0"/>
         <line num="194" type="stmt" count="0"/>
         <line num="195" type="stmt" count="0"/>
         <line num="196" type="stmt" count="0"/>
         <line num="197" type="stmt" count="0"/>
         <line num="198" type="stmt" count="0"/>
+        <line num="199" type="stmt" count="0"/>
         <line num="200" type="stmt" count="0"/>
-        <line num="208" type="method" name="getErrors" crap="2" count="0"/>
-        <line num="211" type="stmt" count="0"/>
-        <line num="219" type="method" name="getInfo" crap="2" count="0"/>
-        <line num="222" type="stmt" count="0"/>
-        <metrics loc="224" ncloc="121" classes="1" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="54" coveredstatements="4" elements="62" coveredelements="4"/>
+        <line num="202" type="stmt" count="0"/>
+        <line num="210" type="method" name="getErrors" crap="2" count="0"/>
+        <line num="213" type="stmt" count="0"/>
+        <line num="221" type="method" name="getInfo" crap="2" count="0"/>
+        <line num="224" type="stmt" count="0"/>
+        <metrics loc="226" ncloc="123" classes="1" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="55" coveredstatements="4" elements="63" coveredelements="4"/>
       </file>
       <file name="/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-uploader/src/Uploader/Validator.php">
         <class name="Validator" namespace="Uploader" fullPackage="Uploader" package="Uploader">
@@ -161,6 +162,6 @@
         <metrics loc="162" ncloc="94" classes="1" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="38" coveredstatements="0" elements="43" coveredelements="0"/>
       </file>
     </package>
-    <metrics files="4" loc="517" ncloc="289" classes="4" methods="16" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="116" coveredstatements="4" elements="132" coveredelements="4"/>
+    <metrics files="4" loc="519" ncloc="291" classes="4" methods="16" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="117" coveredstatements="4" elements="133" coveredelements="4"/>
   </project>
 </coverage>

@@ -6,4 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Test\\Uploader\\Helpers\\FormatTest' => $baseDir . '/phpunit/src/Uploader/Helpers/FormatTest.php',
+    'Test\\Uploader\\Helpers\\MessageTest' => $baseDir . '/phpunit/src/Uploader/Helpers/MessageTest.php',
+    'Test\\Uploader\\UploaderTest' => $baseDir . '/phpunit/src/Uploader/UploaderTest.php',
+    'Test\\Uploader\\ValidatorTest' => $baseDir . '/phpunit/src/Uploader/ValidatorTest.php',
+    'Uploader\\Helpers\\Format' => $baseDir . '/src/Uploader/Helpers/Format.php',
+    'Uploader\\Helpers\\Message' => $baseDir . '/src/Uploader/Helpers/Message.php',
+    'Uploader\\Uploader' => $baseDir . '/src/Uploader/Uploader.php',
+    'Uploader\\Validator' => $baseDir . '/src/Uploader/Validator.php',
 );

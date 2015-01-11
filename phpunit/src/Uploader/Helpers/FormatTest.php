@@ -78,4 +78,11 @@ class FormatTest extends \PHPUnit_Framework_TestCase
         return $prop;
     }
 
+    /**
+     * @covers Uploader\Helpers\Format::bytes()
+     */
+    public function testBytes() {
+
+    }
+
 }

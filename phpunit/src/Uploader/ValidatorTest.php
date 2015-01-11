@@ -1,5 +1,5 @@
 <?php
-namespace Test\Validator;
+namespace Test\Uploader;
 
 use Uploader\Validator;
 
@@ -78,4 +78,10 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         return $prop;
     }
 
+    /**
+     * @covers Uploader\Validator::checkMinsize()
+     */
+    public function testMinsize() {
+
+    }
 }

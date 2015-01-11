@@ -77,6 +77,7 @@ class UploaderTest extends \PHPUnit_Framework_TestCase
         $prop->setAccessible(true);
         return $prop;
     }
+
     /**
      * @covers Uploader\Uploader::__construct()
      */

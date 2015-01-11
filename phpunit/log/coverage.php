@@ -1,6 +1,87 @@
 <?php
 $coverage = new PHP_CodeCoverage;
 $coverage->setData(array (
+  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-uploader/src/Uploader/Helpers/Format.php' => 
+  array (
+    47 => 
+    array (
+    ),
+    48 => 
+    array (
+    ),
+    49 => 
+    array (
+    ),
+    50 => NULL,
+    62 => 
+    array (
+    ),
+    64 => 
+    array (
+    ),
+    65 => 
+    array (
+    ),
+    67 => 
+    array (
+    ),
+    68 => 
+    array (
+    ),
+    69 => 
+    array (
+    ),
+    70 => 
+    array (
+    ),
+    71 => 
+    array (
+    ),
+    73 => 
+    array (
+    ),
+    75 => 
+    array (
+    ),
+    77 => 
+    array (
+    ),
+    78 => 
+    array (
+    ),
+    79 => 
+    array (
+    ),
+    81 => 
+    array (
+    ),
+    83 => 
+    array (
+    ),
+    84 => 
+    array (
+    ),
+    85 => 
+    array (
+    ),
+    87 => 
+    array (
+    ),
+    88 => NULL,
+  ),
+  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-uploader/src/Uploader/Helpers/Message.php' => 
+  array (
+    39 => 
+    array (
+    ),
+    40 => 
+    array (
+    ),
+    41 => NULL,
+    42 => 
+    array (
+    ),
+  ),
   '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-uploader/src/Uploader/Validator.php' => 
   array (
     36 => 
@@ -221,23 +302,20 @@ $coverage->setData(array (
     155 => 
     array (
     ),
-    156 => NULL,
-    167 => 
+    157 => 
     array (
     ),
+    158 => NULL,
     169 => 
-    array (
-    ),
-    170 => 
     array (
     ),
     171 => 
     array (
     ),
-    173 => 
+    172 => 
     array (
     ),
-    174 => 
+    173 => 
     array (
     ),
     175 => 
@@ -246,34 +324,34 @@ $coverage->setData(array (
     176 => 
     array (
     ),
+    177 => 
+    array (
+    ),
     178 => 
     array (
     ),
-    179 => 
+    180 => 
     array (
     ),
     181 => 
     array (
     ),
-    182 => 
+    183 => 
     array (
     ),
-    183 => 
+    184 => 
     array (
     ),
     185 => 
     array (
     ),
-    188 => 
+    187 => 
     array (
     ),
     190 => 
     array (
     ),
     192 => 
-    array (
-    ),
-    193 => 
     array (
     ),
     194 => 
@@ -291,104 +369,30 @@ $coverage->setData(array (
     198 => 
     array (
     ),
+    199 => 
+    array (
+    ),
     200 => 
     array (
     ),
-    201 => NULL,
-    211 => 
+    202 => 
     array (
     ),
-    213 => NULL,
-    222 => 
+    203 => NULL,
+    213 => 
     array (
     ),
-    224 => NULL,
-  ),
-  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-uploader/src/Uploader/Helpers/Format.php' => 
-  array (
-    47 => 
+    215 => NULL,
+    224 => 
     array (
     ),
-    48 => 
-    array (
-    ),
-    49 => 
-    array (
-    ),
-    50 => NULL,
-    62 => 
-    array (
-    ),
-    64 => 
-    array (
-    ),
-    65 => 
-    array (
-    ),
-    67 => 
-    array (
-    ),
-    68 => 
-    array (
-    ),
-    69 => 
-    array (
-    ),
-    70 => 
-    array (
-    ),
-    71 => 
-    array (
-    ),
-    73 => 
-    array (
-    ),
-    75 => 
-    array (
-    ),
-    77 => 
-    array (
-    ),
-    78 => 
-    array (
-    ),
-    79 => 
-    array (
-    ),
-    81 => 
-    array (
-    ),
-    83 => 
-    array (
-    ),
-    84 => 
-    array (
-    ),
-    85 => 
-    array (
-    ),
-    87 => 
-    array (
-    ),
-    88 => NULL,
-  ),
-  '/var/www/phalcon-devtools/phalcon.local/vendor/stanislav-web/phalcon-uploader/src/Uploader/Helpers/Message.php' => 
-  array (
-    39 => 
-    array (
-    ),
-    40 => 
-    array (
-    ),
-    41 => NULL,
-    42 => 
-    array (
-    ),
+    226 => NULL,
   ),
 ));
 $coverage->setTests(array (
+  'Test\\Uploader\\Helpers\\FormatTest::testBytes' => 0,
+  'Test\\Uploader\\Helpers\\MessageTest::testGet' => 0,
   'Test\\Uploader\\UploaderTest::testConstructor' => 0,
-  'UNCOVERED_FILES_FROM_WHITELIST' => NULL,
 ));
 
 $filter = $coverage->filter();
