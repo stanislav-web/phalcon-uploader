@@ -51,9 +51,16 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
     /**
      * Validator
      *
-     * @var \Plugins\Uploader\Validator
+     * @var \Uploader\Validator
      */
     private $validator;
+
+    /**
+     * Assigned filters
+     *
+     * @var array
+     */
+    private $filters = [];
 
     /**
      * Initialize rules
@@ -120,6 +127,18 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
             else {
                 $this->rules[$key]  =   trim($values);
             }
+        }
+
+        return $this;
+    }
+
+    public function addFilters(array $filter) {
+
+        $this->filters    = $filter;
+
+        foreach($this->filters as $filter) {
+            var_dump($filter);
+
         }
 
         return $this;
