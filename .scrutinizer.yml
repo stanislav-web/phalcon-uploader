@@ -2,7 +2,7 @@ build:
 
     environment:
         php:
-            version: "5.5.12" # Common versions: 5.4.28, 5.5.12, or hhvm
+            version: "5.4.28" # Common versions: 5.4.28, 5.5.12, or hhvm
             ini:
                 'date.timezone': 'UTC'
         redis: false
@@ -16,7 +16,7 @@ build:
 
 filter:
     paths: [src/*]
-    excluded_paths: [build/*, phpunit/*]
+    excluded_paths: [build/*, phpunit/*, vendor/*]
 
 tools:
     php_sim: true
@@ -34,7 +34,7 @@ tools:
     php_analyzer:
         enabled: true
         filter:
-            excluded_paths: [build/*, phpunit/*]
+            excluded_paths: [build/*, phpunit/*, vendor/*]
         extensions:
             - php
 
@@ -47,7 +47,7 @@ tools:
             - php
         command: phpcs
         filter:
-           excluded_paths: [build/*, phpunit/*]
+           excluded_paths: [build/*, phpunit/*, vendor/*]
 
     php_cs_fixer:
         enabled: true

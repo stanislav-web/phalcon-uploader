@@ -51,13 +51,99 @@ You can create an injectable service
 #### Simple usage
 
 ```php
+ <?php
+ 
+ if($this->request->hasFiles() !== false) {
+    
+    // get uploader service
+    $uploader = $this->di->get('uploader');
+    
+    // setting up uloader rules
+    $uploader->setRules([
+        'directory' =>  '/files',
+    ]);
+    
+    // or use constructor if you don't use service
+    $uploader = new \Uploader\Uploader(([
+        'directory' =>  '/files',
+    ]);
 
+ }
 ```
 
 #### Filters
 
 ```php
+ <?php
+ 
+ if($this->request->hasFiles() !== false) {
     
+    // get uploader service or \Uploader\Uploader
+    $uploader = $this->di->get('uploader');
+    
+    // setting up uloader rules
+    $uploader->setRules([
+        'directory' =>  '/files',
+        'minsize'   =>  1000,   // bytes
+        'maxsize'   =>  1000000,// bytes
+        'mimes'     =>  [       // any allowed mime types
+            'image/gif',
+            'image/jpeg',
+            'image/png',
+        ],
+        'extensions'     =>  [  // any allowed extensions
+            'gif',
+            'jpeg',
+            'jpg',
+            'png',
+        ],  
+          
+        'sanitize' => true  // escape file & translate to latin  
+        'hash'     => 'md5'  // save file as hash (default md5) you can use ANY function to handle filename
+    ]);
+ }
+```
+
+#### Full Handle
+
+```php
+ <?php
+ 
+ if($this->request->hasFiles() !== false) {
+    
+    // get uploader service or \Uploader\Uploader
+    $uploader = $this->di->get('uploader');
+    
+    // setting up uloader rules
+    $uploader->setRules([
+        'directory' =>  '/files',
+        'minsize'   =>  1000,   // bytes
+        'maxsize'   =>  1000000,// bytes
+        'mimes'     =>  [       // any allowed mime types
+            'image/gif',
+            'image/jpeg',
+            'image/png',
+        ],
+        'extensions'     =>  [  // any allowed extensions
+            'gif',
+            'jpeg',
+            'jpg',
+            'png',
+        ],  
+          
+        'sanitize' => true
+        'hash'     => 'md5'
+    ]);
+    
+    if($uploader->isValid() === true) {
+    
+        $info = $uploader->move()); // upload files array result
+    
+    }
+    else {
+        $uploader->getErrors(); // var_dump errors
+    }
+ }
 ```
 
 ## Unit Test

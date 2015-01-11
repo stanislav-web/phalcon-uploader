@@ -1,5 +1,5 @@
 <?php
-namespace Plugins\Uploader\Helpers;
+namespace Uploader\Helpers;
 
 /**
  * Format helper class

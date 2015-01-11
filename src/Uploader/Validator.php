@@ -1,8 +1,8 @@
 <?php
-namespace Plugins\Uploader;
+namespace Uploader;
 
-use Plugins\Uploader\Helpers\Message;
-use Plugins\Uploader\Helpers\Format;
+use Uploader\Helpers\Message;
+use Uploader\Helpers\Format;
 
 /**
  * Validator class
@@ -156,7 +156,6 @@ class Validator
             $this->errors[] =   sprintf(Helpers\Message::get('INVALID_PERMISSION_DIR'), $value);
             return false;
         }
-
 
         return true;
     }

@@ -1,5 +1,5 @@
 <?php
-namespace Plugins\Uploader\Helpers;
+namespace Uploader\Helpers;
 
 /**
  * Message helper class

@@ -30,5 +30,11 @@
         "psr-4": {
             "Uploader\\": "src/Uploader"
         }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\Uploader\\": "phpunit/src/Uploader"
+        }
     }
 }

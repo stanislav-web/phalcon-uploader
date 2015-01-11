@@ -1,6 +1,6 @@
 <?php
-namespace Plugins\Uploader;
-use Plugins\Uploader\Helpers\Format;
+namespace Uploader;
+use Uploader\Helpers\Format;
 
 /**
  * Uploader executable class
@@ -27,7 +27,6 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
      */
     private $request;
 
-
     /**
      * File Di
      *
@@ -41,6 +40,13 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
      * @var array $rules
      */
     private $rules  = [];
+
+    /**
+     * Uploaded files info
+     *
+     * @var \Phalcon\Session\Bag $info
+     */
+    private $info;
 
     /**
      * Validator
@@ -66,6 +72,9 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
 
         // get validator
         $this->validator = new Validator();
+
+        // create session bag for file info
+        $this->info = new \Phalcon\Session\Bag('info');
     }
 
     /**
@@ -162,19 +171,33 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
             }
 
             if(isset($this->rules['hash']) === true) {
-                $filename   =   md5($file->getName()).'.'.$file->getExtension();
+                if(empty($this->rules['hash']) === true) {
+                    $this->rules['hash']    =   'md5';
+                }
+
+                $filename   =   $this->rules['hash']($file->getName()).'.'.$file->getExtension();
             }
 
             if(isset($filename) === false) {
                 $filename   =   $file->getName();
             }
 
-            // move file to target directory
-           $file->moveTo(rtrim($this->rules['directory'], '/').DIRECTORY_SEPARATOR.$filename);
+            $tmp = rtrim($this->rules['directory'], '/').DIRECTORY_SEPARATOR.$filename;
 
+            // move file to target directory
+            $isUploaded = $file->moveTo($tmp);
+
+            if($isUploaded === true) {
+
+                $this->info->set($n, [
+                    'path'  =>  $tmp,
+                    'size'  =>  $file->getSize(),
+                    'extension'  =>  $file->getExtension(),
+                ]);
+            }
         }
 
-        return;
+        return $this->getInfo();
     }
 
     /**
@@ -186,6 +209,17 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
 
         // error container
         return $this->validator->errors;
+
+    }
+
+    /** Get uploaded files info
+     *
+     * @return \Phalcon\Session\Bag
+     */
+    public function getInfo() {
+
+        // error container
+        return $this->info;
 
     }
 }
