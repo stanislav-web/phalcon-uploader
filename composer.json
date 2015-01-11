@@ -29,7 +29,8 @@
     "autoload": {
         "psr-4": {
             "Uploader\\": "src/Uploader"
-        }
+        },
+        "classmap": ["phpunit/src/Uploader"]
     },
 
     "autoload-dev": {
