@@ -1,6 +1,6 @@
 # Phalcon File Uploader
 
- [![Total Downloads](https://poser.pugx.org/stanislav-web/phalcon-uploader/downloads.svg)](https://packagist.org/packages/stanislav-web/phalcon-uploader) [![Latest Unstable Version](https://poser.pugx.org/stanislav-web/phalcon-uploader/v/unstable.svg)](https://packagist.org/packages/stanislav-web/phalcon-uploader)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/stanislav-web/phalcon-uploader/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/stanislav-web/phalcon-uploader/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/stanislav-web/phalcon-uploader/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/stanislav-web/phalcon-uploader/?branch=master) [![Total Downloads](https://poser.pugx.org/stanislav-web/phalcon-uploader/downloads.svg)](https://packagist.org/packages/stanislav-web/phalcon-uploader) [![Latest Unstable Version](https://poser.pugx.org/stanislav-web/phalcon-uploader/v/unstable.svg)](https://packagist.org/packages/stanislav-web/phalcon-uploader)
 
 ## Description
 Handling and downloading files for Phalcon projects. Allowed multiple files, filters etc.... _(Currently under TDD)_
