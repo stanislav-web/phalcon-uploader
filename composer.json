@@ -1,0 +1,34 @@
+{
+    "name": "stanislav-web/phalcon-uploader",
+    "description": "Phalcon files uploader. Handling and downloading files for Phalcon projects. Allowed multiple files download, filters etc...",
+    "type": "library",
+    "keywords" : [
+        "phalcon",
+        "phalcon uploader",
+        "phalcon upload",
+        "phalcon upload files",
+        "uploader"
+    ],
+    "support": {
+        "issues": "https://github.com/stanislav-web/phalcon-uploader/issues"
+    },
+    "minimum-stability": "dev",
+    "homepage" : "https://github.com/stanislav-web/phalcon-uploader",
+    "license" : "MIT",
+    "authors" : [{
+        "name": "Stanislav WEB",
+        "email": "stanisov@gmail.com",
+        "homepage": "http://reds.com",
+        "role": "Developer"
+    }],
+
+    "require" : {
+        "php" : ">=5.4.0"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Uploader\\": "src/Uploader"
+        }
+    }
+}
