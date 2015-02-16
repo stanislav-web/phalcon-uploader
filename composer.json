@@ -32,7 +32,11 @@
         },
         "classmap": ["phpunit/src/Uploader"]
     },
-
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.*-dev"
+        }
+    },
     "autoload-dev": {
         "psr-4": {
             "Test\\Uploader\\": "phpunit/src/Uploader"
