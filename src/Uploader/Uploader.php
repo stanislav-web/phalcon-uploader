@@ -1,8 +1,6 @@
 <?php
 namespace Uploader;
-
 use Uploader\Helpers\Format;
-use \Phalcon\Session\Bag as SessionBag;
 
 /**
  * Uploader executable class
@@ -18,7 +16,7 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
     /**
      * Instance of DI
      *
-     * @var \Phalcon\DiInterface
+     * @var \Phalcon\DI\FactoryDefault()
      */
     protected $di;
 
@@ -44,16 +42,16 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
     private $rules  = [];
 
     /**
-     * Uploaded files info
+     * Uploaded files array
      *
-     * @var \Phalcon\Session\Bag $info
+     * @var array $info
      */
     private $info;
 
     /**
      * Validator
      *
-     * @var \Uploader\Validator
+     * @var \Plugins\Uploader\Validator
      */
     private $validator;
 
@@ -61,22 +59,19 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
      * Initialize rules
      *
      * @param array $rules
-     * @uses \Phalcon\Session\Bag
+     *
      * @return null
      */
-    public function __construct(array $rules = [])
+    public function __construct($rules = [])
     {
-
         if(empty($rules) === false) {
 
             $this->setRules($rules);
+
         }
 
         // get validator
         $this->validator = new Validator();
-
-        // create session bag for file info
-        $this->info = new SessionBag('info');
     }
 
     /**
@@ -179,12 +174,7 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
                     $this->rules['hash']    =   'md5';
                 }
 
-                if(function_exists($this->rules['hash'])) {
-                    $filename   =   $this->rules['hash']($file->getName()).'.'.$file->getExtension();
-                }
-                else {
-                    throw new \Exception('Method of processing the file does not exist');
-                }
+                $filename   =   $this->rules['hash']($file->getName()).'.'.$file->getExtension();
             }
 
             if(isset($filename) === false) {
@@ -198,11 +188,11 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
 
             if($isUploaded === true) {
 
-                $this->info->set($n, [
+                $this->info[] = [
                     'path'  =>  $tmp,
                     'size'  =>  $file->getSize(),
                     'extension'  =>  $file->getExtension(),
-                ]);
+                ];
             }
         }
 
