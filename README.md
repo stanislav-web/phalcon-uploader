@@ -137,7 +137,9 @@ You can create an injectable service
     
     if($uploader->isValid() === true) {
     
-        $info = $uploader->move(); // upload files array result
+        $uploader->move(); // upload files array result
+        
+        $uploader->getInfo() // var dump to see upload files
     
     }
     else {
