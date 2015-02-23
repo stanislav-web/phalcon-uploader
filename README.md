@@ -148,6 +148,9 @@ You can create an injectable service
         $uploader->getErrors(); // var_dump errors
     }
  }
+ 
+ // you always can remove all files uploaded by one iteration 
+ $uploader->truncate(); // added 1.1
 ```
 
 ## Unit Test
