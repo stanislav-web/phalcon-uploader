@@ -211,14 +211,29 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
 
     }
 
-    /** Get uploaded files info
+    /**
+     * Get uploaded files info
      *
-     * @return \Phalcon\Session\Bag
+     * @return \Phalcon\Session\Adapter\Files
      */
     public function getInfo() {
 
         // error container
         return $this->info;
 
+    }
+
+    /**
+     * Truncate uploaded files
+     */
+    public function truncate() {
+
+        if(empty($this->info) === false) {
+            foreach($this->info as $n => $file) {
+                if(file_exists($file['path'])) {
+                    unlink($file['path']);
+                }
+            }
+        }
     }
 }
