@@ -51,7 +51,7 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
     /**
      * Validator
      *
-     * @var \Plugins\Uploader\Validator
+     * @var \Uploader\Validator
      */
     private $validator;
 
@@ -165,20 +165,18 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
 
         foreach($this->files as $n => $file) {
 
-            if(isset($this->rules['sanitize']) === true) {
-                $filename   =   Format::toLatin($file->getName(), '', true);
-            }
+            $filename = $file->getName();
 
             if(isset($this->rules['hash']) === true) {
                 if(empty($this->rules['hash']) === true) {
                     $this->rules['hash']    =   'md5';
                 }
 
-                $filename   =   $this->rules['hash']($file->getName()).'.'.$file->getExtension();
+                $filename   =   $this->rules['hash']($filename).'.'.$file->getExtension();
             }
 
-            if(isset($filename) === false) {
-                $filename   =   $file->getName();
+            if(isset($this->rules['sanitize']) === true) {
+                $filename   =   Format::toLatin($filename, '', true);
             }
 
             $tmp = rtrim($this->rules['directory'], '/').DIRECTORY_SEPARATOR.$filename;
@@ -189,9 +187,11 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
             if($isUploaded === true) {
 
                 $this->info[] = [
-                    'path'  =>  $tmp,
-                    'size'  =>  $file->getSize(),
-                    'extension'  =>  $file->getExtension(),
+                    'path' =>  $tmp,
+                    'directory' => dirname($tmp),
+                    'filename' => $filename,
+                    'size' => $file->getSize(),
+                    'extension' => $file->getExtension(),
                 ];
             }
         }
