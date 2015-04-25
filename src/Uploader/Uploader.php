@@ -91,7 +91,7 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
      *
      * @return null
      */
-    public function setDI($di)
+    public function setDI(\Phalcon\DiInterface $di)
     {
         $this->di = $di;
 
