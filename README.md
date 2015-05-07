@@ -6,6 +6,10 @@
 Handling and downloading files for Phalcon projects. Allowed multiple files, filters etc.... _(Currently under TDD)_
 
 ## Change Log 
+
+#### [v 1.3-beta] 2015-05-07
+    - It support Phalcon 2.0
+    
 #### [v 1.2-beta] 2015-05-07
     - ability to use closure (anonimous function) for generate uploaded file name
     
