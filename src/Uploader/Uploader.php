@@ -1,6 +1,7 @@
 <?php
 namespace Uploader;
 use Uploader\Helpers\Format;
+use Phalcon\Http\Request;
 
 /**
  * Uploader executable class
@@ -11,24 +12,18 @@ use Uploader\Helpers\Format;
  * @author    Stanislav WEB | Lugansk <stanisov@gmail.com>
  * @copyright Stanislav WEB
  */
-class Uploader implements \Phalcon\DI\InjectionAwareInterface
+class Uploader
 {
-    /**
-     * Instance of DI
-     *
-     * @var \Phalcon\DI\FactoryDefault()
-     */
-    protected $di;
 
     /**
-     * Request Di
+     * Request
      *
      * @var \Phalcon\Http\Request $rules
      */
     private $request;
 
     /**
-     * File Di
+     * File
      *
      * @var \Phalcon\Http\Request\File $files
      */
@@ -67,36 +62,12 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
         if(empty($rules) === false) {
 
             $this->setRules($rules);
-
         }
 
         // get validator
         $this->validator = new Validator();
-    }
-
-    /**
-     * Implemented. Get DI container
-     *
-     * @return \Phalcon\DiInterface
-     */
-    public function getDI()
-    {
-        return $this->di;
-    }
-
-    /**
-     * Implemented. Setup DI container
-     *
-     * @param \Phalcon\DiInterface $di
-     *
-     * @return null
-     */
-    public function setDI($di)
-    {
-        $this->di = $di;
-
-        // get current request data
-        $this->request = $this->di->get('request');
+        // get current request
+        $this->request = new Request();
     }
 
     /**
