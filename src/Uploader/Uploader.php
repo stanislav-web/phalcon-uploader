@@ -107,15 +107,13 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
      */
     public function setRules(array $rules)
     {
-
         foreach ($rules as $key => $values) {
 
-            if(is_array($values) === true && empty($values) === false) {
-
-                $this->rules[$key]  =   $values;
+            if((is_array($values) === true && empty($values) === false) || is_callable($values)) {
+                $this->rules[$key] = $values;
             }
             else {
-                $this->rules[$key]  =   trim($values);
+                $this->rules[$key] = trim($values);
             }
         }
 
@@ -172,7 +170,13 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
                     $this->rules['hash']    =   'md5';
                 }
 
-                $filename   =   $this->rules['hash']($filename).'.'.$file->getExtension();
+                if(!is_string($this->rules['hash']) === true) {
+
+                    $filename   = call_user_func($this->rules['hash']).'.'.$file->getExtension();
+                }
+                else {
+                    $filename   =   $this->rules['hash']($filename).'.'.$file->getExtension();
+                }
             }
 
             if(isset($this->rules['sanitize']) === true) {
