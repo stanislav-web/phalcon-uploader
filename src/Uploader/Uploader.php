@@ -54,7 +54,6 @@ class Uploader
      * Initialize rules
      *
      * @param array $rules
-     *
      * @return null
      */
     public function __construct($rules = [])
@@ -162,10 +161,10 @@ class Uploader
             if($isUploaded === true) {
 
                 $this->info[] = [
-                    'path' =>  $tmp,
+                    'path'      =>  $tmp,
                     'directory' => dirname($tmp),
-                    'filename' => $filename,
-                    'size' => $file->getSize(),
+                    'filename'  => $filename,
+                    'size'      => $file->getSize(),
                     'extension' => $file->getExtension(),
                 ];
             }
