@@ -132,6 +132,7 @@ class Validator
      * Check upload directory
      *
      * @param \Phalcon\Http\Request\File $file
+     * @param mixed $value
      * @param $value
      * @return bool
      */
@@ -143,8 +144,6 @@ class Validator
             $value    = $value[key($value)];
         }
 
-        // check
-
         if(file_exists($value) === false) {
 
             $this->errors[] =   sprintf(Message::get('INVALID_UPLOAD_DIR'), $value);
@@ -155,6 +154,24 @@ class Validator
 
             $this->errors[] =   sprintf(Message::get('INVALID_PERMISSION_DIR'), $value);
             return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Create Directory if not exist
+     *
+     * @param string $directory
+     * @param int $permission
+     * @version v1.4
+     * @author Mahdi-Mohammadi
+     * @return bool
+     */
+    public function checkDynamic(\Phalcon\Http\Request\File $file = null, $directory, $permission = 0777) {
+
+        if(!is_dir($directory) && file_exists($directory) === FALSE) {
+            mkdir(rtrim($directory,'/').DIRECTORY_SEPARATOR, $permission, true);
         }
 
         return true;
