@@ -116,8 +116,6 @@ class Validator
             $value    = [$value];
         }
 
-        // check
-
         if(in_array($file->getRealType(), $value) === false) {
 
             $this->errors[] =   sprintf(Message::get('INVALID_MIME_TYPES'), $file->getName(), implode(',', $value));
@@ -170,7 +168,7 @@ class Validator
      */
     public function checkDynamic(\Phalcon\Http\Request\File $file = null, $directory, $permission = 0777) {
 
-        if(!is_dir($directory) && file_exists($directory) === FALSE) {
+        if(is_dir($directory) === false && file_exists($directory) === false) {
             mkdir(rtrim($directory,'/').DIRECTORY_SEPARATOR, $permission, true);
         }
 
