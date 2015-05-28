@@ -1,5 +1,8 @@
+#### [v 1.4-beta] 2015-05-28
+    - ability to download files to a dynamically created directory (by [Mahdi-Mohammadi](https://github.com/Mahdi-Mohammadi))
+    
 #### [v 1.3-beta] 2015-05-07
-    - It support Phalcon 2.0
+    - it support Phalcon 2.0
     
 #### [v 1.2-beta] 2015-05-07
     - ability to use closure (anonimous function) for generate uploaded file name
