@@ -7,8 +7,11 @@ Handling and downloading files for Phalcon projects. Allowed multiple files, fil
 
 ## Change Log 
 
+#### [v 1.4-beta] 2015-05-28
+    - ability to download files to a dynamically created directory (by [Mahdi-Mohammadi](https://github.com/Mahdi-Mohammadi))
+    
 #### [v 1.3-beta] 2015-05-07
-    - It support Phalcon 2.0
+    - it support Phalcon 2.0
     
 #### [v 1.2-beta] 2015-05-07
     - ability to use closure (anonimous function) for generate uploaded file name
@@ -70,11 +73,13 @@ You can create an injectable service
     // setting up uloader rules
     $uploader->setRules([
         'directory' =>  '/files',
+        //or 'dynamic'   =>  '/files/'.$part.'/'.$userId, // added v1.4-beta
     ]);
     
     // or use constructor if you don't use service
     $uploader = new \Uploader\Uploader(([
         'directory' =>  '/files',
+        //or 'dynamic'   =>  '/files/'.$part.'/'.$userId, // added v1.4-beta
     ]);
 
  }
@@ -93,6 +98,7 @@ You can create an injectable service
     // setting up uloader rules
     $uploader->setRules([
         'directory' =>  '/files',
+        //or 'dynamic'   =>  '/files/'.$part.'/'.$userId, // added v1.4-beta
         'minsize'   =>  1000,   // bytes
         'maxsize'   =>  1000000,// bytes
         'mimes'     =>  [       // any allowed mime types
@@ -126,6 +132,7 @@ You can create an injectable service
     // setting up uloader rules
     $uploader->setRules([
         'directory' =>  '/files',
+        //or 'dynamic'   =>  '/files/'.$part.'/'.$userId, // added v1.4-beta
         'minsize'   =>  1000,   // bytes
         'maxsize'   =>  1000000,// bytes
         'mimes'     =>  [       // any allowed mime types
