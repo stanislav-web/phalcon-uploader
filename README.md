@@ -34,7 +34,7 @@ Handling and downloading files for Phalcon projects. Allowed multiple files, fil
 First update your dependencies through composer. Add to your composer.json:
 ```php
 "require": {
-    "stanislav-web/phalcon-uploader": "1.0-stable",
+    "stanislav-web/phalcon-uploader": "1.*",
 }
 ```
 Then run to update dependency and autoloader 
