@@ -151,7 +151,12 @@ class Uploader {
                 $filename   =   Format::toLatin($filename, '', true);
             }
 
-            $tmp = rtrim($this->rules['directory'], '/').DIRECTORY_SEPARATOR.$filename;
+            if(isset($this->rules['directory'])) {
+                $tmp = rtrim($this->rules['directory'], '/').DIRECTORY_SEPARATOR.$filename;
+            }else {
+                $tmp = rtrim($this->rules['dynamic'], '/').DIRECTORY_SEPARATOR.$filename;
+
+            }
 
             // move file to target directory
             $isUploaded = $file->moveTo($tmp);
