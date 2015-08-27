@@ -91,7 +91,7 @@ class Validator
 
         // check
 
-        if(in_array($file->getExtension(), $value) === false) {
+        if(in_array(strtolower($file->getExtension()), $value) === false) {
 
             $this->errors[] =   sprintf(Message::get('INVALID_EXTENSION'), $file->getName(), implode(',', $value));
 
