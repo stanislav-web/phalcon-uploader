@@ -101,9 +101,9 @@ class Uploader implements \Phalcon\DI\InjectionAwareInterface
      *
      * @return null
      */
-    public function setDI($di)
+    public function setDI(\Phalcon\DiInterface $dependencyInjector)
     {
-        $this->di = $di;
+        $this->di = $dependencyInjector;
 
         // get current request data
         $this->request = $this->di->get('request');
