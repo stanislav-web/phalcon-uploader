@@ -46,7 +46,6 @@ tools:
             standard: PSR2
         extensions:
             - php
-        command: phpcs
         filter:
            excluded_paths: [build/*, phpunit/*, vendor/*]
 
