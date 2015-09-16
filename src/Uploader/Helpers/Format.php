@@ -57,10 +57,9 @@ class Format
      * @param boolean $clean to lower & all non understand symbols remove
      * @return
      */
-    static public function toLatin($string, $separator = '', $clean = false)
+    public static function toLatin($string, $separator = '', $clean = false)
     {
-        for($i = 0; $i<count(self::$cyr); $i++)
-        {
+        for ($i = 0; $i < count(self::$cyr); $i++) {
             $string = str_replace(self::$cyr[$i], self::$lat[$i], $string);
         }
 
@@ -72,13 +71,13 @@ class Format
 
         $string = trim($string);
 
-        if(empty($separator) === false) {
+        if (empty($separator) === false) {
 
             $string = str_replace(' ', $separator, $string);
             $string = preg_replace('/['.$separator.']{2,}/', '', $string);
         }
 
-        if($clean !== false) {
+        if ($clean !== false) {
 
             $string = strtolower($string);
             $string = preg_replace('/[^-_a-z0-9.]+/', '', $string);
@@ -86,5 +85,4 @@ class Format
 
         return $string;
     }
-
 }
