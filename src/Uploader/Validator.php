@@ -129,7 +129,7 @@ class Validator
     /**
      * Check upload directory
      *
-     * @param \Phalcon\Http\Request\File $file
+     * @param null|\Phalcon\Http\Request\File $file
      * @param mixed $value
      * @param $value
      * @return bool
@@ -160,6 +160,7 @@ class Validator
     /**
      * Create Directory if not exist
      *
+     * @param null|\Phalcon\Http\Request\File $file
      * @param string $directory
      * @param int $permission
      * @version v1.4

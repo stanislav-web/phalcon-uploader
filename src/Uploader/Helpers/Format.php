@@ -55,11 +55,13 @@ class Format
      * @param string $string original string
      * @param string $separator word separator
      * @param boolean $clean to lower & all non understand symbols remove
-     * @return
+     * @return string
      */
     public static function toLatin($string, $separator = '', $clean = false)
     {
-        for ($i = 0; $i < count(self::$cyr); $i++) {
+        $cyrillicCount = count(self::$cyr);
+
+        for ($i = 0; $i < $cyrillicCount; $i++) {
             $string = str_replace(self::$cyr[$i], self::$lat[$i], $string);
         }
 

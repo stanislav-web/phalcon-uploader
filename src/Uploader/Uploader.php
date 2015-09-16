@@ -54,7 +54,6 @@ class Uploader {
      * Initialize rules
      *
      * @param array $rules
-     * @return null
      */
     public function __construct($rules = [])
     {
