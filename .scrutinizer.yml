@@ -54,7 +54,6 @@ tools:
         enabled: true
         extensions:
             - php
-        command: php-cs-fixer
         config:
             level: all
 
