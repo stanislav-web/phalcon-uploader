@@ -2,7 +2,7 @@ build:
 
     environment:
         php:
-            version: "5.4.28" # Common versions: 5.4.28, 5.5.12, or hhvm
+            version: "5.4.41" # Common versions: 5.4.28, 5.5.12, or hhvm
             ini:
                 'date.timezone': 'UTC'
         redis: false
@@ -12,7 +12,7 @@ build:
         before:
             - composer install --prefer-dist -o
             - git clone -q --depth=1 https://github.com/phalcon/cphalcon.git -b master
-            - cd cphalcon/ext; export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall"; phpize && ./configure --enable-phalcon && make -j4 && sudo make install && sed -i '$ a \\n[Phalcon]\nextension=phalcon.so\n'  /home/scrutinizer/.phpenv/versions/5.4.28/etc/php.ini
+            - cd cphalcon/ext; export CFLAGS="-g3 -O1 -fno-delete-null-pointer-checks -Wall"; phpize && ./configure --enable-phalcon && make -j4 && sudo make install && sed -i '$ a \\n[Phalcon]\nextension=phalcon.so\n'  /home/scrutinizer/.phpenv/versions/5.4.41/etc/php.ini
             - php -m | grep -i Phalcon
 
 filter:
