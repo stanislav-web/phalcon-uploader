@@ -54,11 +54,10 @@ class Uploader {
      * Initialize rules
      *
      * @param array $rules
-     * @return null
      */
     public function __construct($rules = [])
     {
-        if(empty($rules) === false) {
+        if (empty($rules) === false) {
             $this->setRules($rules);
         }
 
@@ -78,10 +77,9 @@ class Uploader {
     {
         foreach ($rules as $key => $values) {
 
-            if((is_array($values) === true && empty($values) === false) || is_callable($values)) {
+            if ((is_array($values) === true && empty($values) === false) || is_callable($values)) {
                 $this->rules[$key] = $values;
-            }
-            else {
+            } else {
                 $this->rules[$key] = trim($values);
             }
         }
@@ -94,16 +92,16 @@ class Uploader {
      *
      * @return bool
      */
-    public function isValid() {
-
+    public function isValid()
+    {
         // get files for upload
         $this->files = $this->request->getUploadedFiles();
 
-        if(sizeof($this->files) > 0) {
+        if (sizeof($this->files) > 0) {
 
             // do any actions if files exists
 
-            foreach($this->files as $n => $file) {
+            foreach ($this->files as $n => $file) {
 
                 // apply all the validation rules for each file
 
@@ -118,7 +116,7 @@ class Uploader {
 
         $errors = $this->getErrors();
 
-        return (empty($errors)  === true) ? true : false;
+        return (empty($errors) === true) ? true : false;
     }
 
     /**
@@ -126,42 +124,41 @@ class Uploader {
      *
      * @return void
      */
-    public function move() {
-
+    public function move()
+    {
         // do any actions if files exists
 
-        foreach($this->files as $n => $file) {
+        foreach ($this->files as $n => $file) {
 
             $filename = $file->getName();
 
-            if(isset($this->rules['hash']) === true) {
-                if(empty($this->rules['hash']) === true) {
-                    $this->rules['hash']    =   'md5';
+            if (isset($this->rules['hash']) === true) {
+                if (empty($this->rules['hash']) === true) {
+                    $this->rules['hash'] = 'md5';
                 }
 
-                if(!is_string($this->rules['hash']) === true) {
-                    $filename   = call_user_func($this->rules['hash']).'.'.$file->getExtension();
-                }
-                else {
-                    $filename   =   $this->rules['hash']($filename).'.'.$file->getExtension();
+                if (!is_string($this->rules['hash']) === true) {
+                    $filename = call_user_func($this->rules['hash']) . '.' . $file->getExtension();
+                } else {
+                    $filename = $this->rules['hash']($filename) . '.' . $file->getExtension();
                 }
             }
 
-            if(isset($this->rules['sanitize']) === true) {
-                $filename   =   Format::toLatin($filename, '', true);
+            if (isset($this->rules['sanitize']) === true) {
+                $filename = Format::toLatin($filename, '', true);
             }
 
-            if(isset($this->rules['directory'])) {
-                $tmp = rtrim($this->rules['directory'], '/').DIRECTORY_SEPARATOR.$filename;
-            }else {
-                $tmp = rtrim($this->rules['dynamic'], '/').DIRECTORY_SEPARATOR.$filename;
+            if (isset($this->rules['directory'])) {
+                $tmp = rtrim($this->rules['directory'], '/') . DIRECTORY_SEPARATOR . $filename;
+            } else {
+                $tmp = rtrim($this->rules['dynamic'], '/') . DIRECTORY_SEPARATOR . $filename;
 
             }
 
             // move file to target directory
             $isUploaded = $file->moveTo($tmp);
 
-            if($isUploaded === true) {
+            if ($isUploaded === true) {
                 $this->info[] = [
                     'path'      =>  $tmp,
                     'directory' => dirname($tmp),
@@ -182,10 +179,8 @@ class Uploader {
      */
     public function getErrors()
     {
-
         // error container
         return $this->validator->errors;
-
     }
 
     /**
@@ -193,21 +188,20 @@ class Uploader {
      *
      * @return \Phalcon\Session\Adapter\Files
      */
-    public function getInfo() {
-
+    public function getInfo()
+    {
         // error container
         return $this->info;
-
     }
 
     /**
      * Truncate uploaded files
      */
-    public function truncate() {
-
-        if(empty($this->info) === false) {
-            foreach($this->info as $n => $file) {
-                if(file_exists($file['path'])) {
+    public function truncate()
+    {
+        if (empty($this->info) === false) {
+            foreach ($this->info as $n => $file) {
+                if (file_exists($file['path'])) {
                     unlink($file['path']);
                 }
             }

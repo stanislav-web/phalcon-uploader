@@ -33,15 +33,15 @@ class Validator
     {
         // conversion to the desired format
 
-        if(is_array($value) === true) {
-            $value    = $value[key($value)];
+        if (is_array($value) === true) {
+            $value = $value[key($value)];
         }
 
         // check
 
-        if($file->getSize() < (int)$value) {
+        if ($file->getSize() < (int) $value) {
 
-            $this->errors[] =   sprintf(Message::get('INVALID_MIN_SIZE'), $file->getName(), Format::bytes($value));
+            $this->errors[] = sprintf(Message::get('INVALID_MIN_SIZE'), $file->getName(), Format::bytes($value));
             return false;
         }
 
@@ -59,15 +59,15 @@ class Validator
     {
         //conversion to the desired format
 
-        if(is_array($value) === true) {
-            $value    = $value[key($value)];
+        if (is_array($value) === true) {
+            $value = $value[key($value)];
         }
 
         // check
 
-        if($file->getSize() > (int)$value) {
+        if ($file->getSize() > (int) $value) {
 
-            $this->errors[] =   sprintf(Message::get('INVALID_MAX_SIZE'), $file->getName(), Format::bytes($value));
+            $this->errors[] = sprintf(Message::get('INVALID_MAX_SIZE'), $file->getName(), Format::bytes($value));
             return false;
         }
 
@@ -85,15 +85,15 @@ class Validator
     {
         //conversion to the desired format
 
-        if(is_array($value) === false) {
-            $value    = [$value];
+        if (is_array($value) === false) {
+            $value = [$value];
         }
 
         // check
 
-        if(in_array(strtolower($file->getExtension()), $value) === false) {
+        if (in_array(strtolower($file->getExtension()), $value) === false) {
 
-            $this->errors[] =   sprintf(Message::get('INVALID_EXTENSION'), $file->getName(), implode(',', $value));
+            $this->errors[] = sprintf(Message::get('INVALID_EXTENSION'), $file->getName(), implode(',', $value));
 
             return false;
         }
@@ -112,13 +112,13 @@ class Validator
     {
         //conversion to the desired format
 
-        if(is_array($value) === false) {
-            $value    = [$value];
+        if (is_array($value) === false) {
+            $value = [$value];
         }
 
-        if(in_array($file->getRealType(), $value) === false) {
+        if (in_array($file->getRealType(), $value) === false) {
 
-            $this->errors[] =   sprintf(Message::get('INVALID_MIME_TYPES'), $file->getName(), implode(',', $value));
+            $this->errors[] = sprintf(Message::get('INVALID_MIME_TYPES'), $file->getName(), implode(',', $value));
 
             return false;
         }
@@ -129,7 +129,7 @@ class Validator
     /**
      * Check upload directory
      *
-     * @param \Phalcon\Http\Request\File $file
+     * @param null|\Phalcon\Http\Request\File $file
      * @param mixed $value
      * @param $value
      * @return bool
@@ -138,19 +138,19 @@ class Validator
     {
         // conversion to the desired format
 
-        if(is_array($value) === true) {
-            $value    = $value[key($value)];
+        if (is_array($value) === true) {
+            $value = $value[key($value)];
         }
 
-        if(file_exists($value) === false) {
+        if (file_exists($value) === false) {
 
-            $this->errors[] =   sprintf(Message::get('INVALID_UPLOAD_DIR'), $value);
+            $this->errors[] = sprintf(Message::get('INVALID_UPLOAD_DIR'), $value);
             return false;
         }
 
-        if(is_writable($value) === false) {
+        if (is_writable($value) === false) {
 
-            $this->errors[] =   sprintf(Message::get('INVALID_PERMISSION_DIR'), $value);
+            $this->errors[] = sprintf(Message::get('INVALID_PERMISSION_DIR'), $value);
             return false;
         }
 
@@ -160,19 +160,19 @@ class Validator
     /**
      * Create Directory if not exist
      *
+     * @param null|\Phalcon\Http\Request\File $file
      * @param string $directory
      * @param int $permission
      * @version v1.4
      * @author Mahdi-Mohammadi
      * @return bool
      */
-    public function checkDynamic(\Phalcon\Http\Request\File $file = null, $directory, $permission = 0777) {
-
-        if(is_dir($directory) === false && file_exists($directory) === false) {
-            mkdir(rtrim($directory,'/').DIRECTORY_SEPARATOR, $permission, true);
+    public function checkDynamic(\Phalcon\Http\Request\File $file = null, $directory, $permission = 0777)
+    {
+        if (is_dir($directory) === false && file_exists($directory) === false) {
+            mkdir(rtrim($directory,'/') . DIRECTORY_SEPARATOR, $permission, true);
         }
 
         return true;
     }
-
 }
