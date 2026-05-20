@@ -23,9 +23,9 @@ class Uploader {
     private $request;
 
     /**
-     * File
+     * Files
      *
-     * @var \Phalcon\Http\Request\File $files
+     * @var \Phalcon\Http\Request\File[] $files
      */
     private $files;
 
